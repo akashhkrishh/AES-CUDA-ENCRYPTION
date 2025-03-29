@@ -1,0 +1,6 @@
+# nvcc -o aes_encryption encrypt.cpp aes.cu -lcuda
+# nvcc -o aes_decryption decrypt.cpp aes.cu -lcuda
+
+# .\aes_encryption.exe input.txt encrypt.txt 2b7e151628aed2a6abf7a97546a61f3d
+# .\aes_decryption.exe encrypt.txt decrypt.txt 2b7e151628aed2a6abf7a97546a61f3d
+
