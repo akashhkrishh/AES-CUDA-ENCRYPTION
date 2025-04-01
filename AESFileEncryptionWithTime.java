@@ -101,12 +101,12 @@ public class AESFileEncryptionWithTime {
     }
 
     public static void main(String[] args) {
-        String rootPath = System.getProperty("user.dir")+"/src/main/resources/";
-        System.out.println(rootPath);
+     
+    
         String secretKey = "1234567890123456";  // 16-byte secret key (128-bit AES key)
-        String inputFile = rootPath+"input.txt";         // File to encrypt
-        String encryptedFile = rootPath+"encrypted.bin"; // Encrypted output file
-        String decryptedFile = rootPath+"decrypted.txt"; // Decrypted output file
+        String inputFile = "./input.txt";         // File to encrypt
+        String encryptedFile = "./compile/encrypted.txt"; // Encrypted output file
+        String decryptedFile = "./compile/decrypted.txt"; // Decrypted output file
         String key = UUID.randomUUID().toString();
 
         try {
@@ -123,8 +123,8 @@ public class AESFileEncryptionWithTime {
             decryptFile(encryptedFile, decryptedFile, secretKey);
             endTime = System.currentTimeMillis();
             System.out.println("Decryption completed in " + (endTime - startTime) + " milliseconds.");
-            String encryptionDetails = executeCommand("aes_encryption.exe", inputFile,rootPath+"GPUinput.txt",key);
-            String decryptionDetails = executeCommand("aes_decryption.exe", rootPath+"GPUinput.txt",rootPath+"GPUoutput.txt",key);
+            String encryptionDetails = executeCommand("encryption.exe", inputFile,"./compile/GPUinput.txt",key);
+            String decryptionDetails = executeCommand("decryption.exe", "./compile/GPUinput.txt","./compile/GPUoutput.txt",key);
             System.out.println(encryptionDetails);
             System.out.println(decryptionDetails);
 
